@@ -1,7 +1,49 @@
-apply plugin: 'java-library'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group 'com.github.arin-pang'
+archivesBaseName = 'okhttp-preloader-interceptor'
+version '0.1.0'
+
+repositories {
+    google()
+    jcenter()
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/arin-pang/okhttp-preloader-interceptor")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("PASSWORD")
+            }
+        }
+    }
+    publications {
+        register("jar", MavenPublication) {
+            from(components["java"])
+            pom {
+                url.set("https://github.com/arin-pang/okhttp-preloader-interceptor.git")
+            }
+        }
+    }
+}
 
 dependencies {
-    compileOnly 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    compileOnly 'io.reactivex.rxjava2:rxjava:2.2.16'
     compileOnly 'com.squareup.okhttp3:okhttp:4.2.1'
 }
 
