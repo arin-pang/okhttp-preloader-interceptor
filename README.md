@@ -2,9 +2,21 @@
 An [OkHttp interceptor][interceptors] which uses HTTP requests queue with RxJava.
 
 ### Prerequisite
+1. Add it in your root build.gradle at the end of repositories:
 ```groovy
+allprojects {
+    repositories {
+    	...
+        maven { url "https://jitpack.io" }
+```
+
+2. Add the dependencies:
+```groovy
+...
 implementation("com.squareup.okhttp3:okhttp:4.2.x")  
 implementation("io.reactivex.rxjava2:rxjava:2.x.x")
+implementation("com.github.arin-pang:okhttp-preloader-interceptor:v0.1.0")
+...
 ```
 
 
