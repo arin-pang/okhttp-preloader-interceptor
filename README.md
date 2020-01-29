@@ -1,6 +1,9 @@
 # okhttp-preloader-interceptor
 An [OkHttp interceptor][interceptors] which uses HTTP requests queue with RxJava.
 
+
+![flow-chart](https://user-images.githubusercontent.com/20806960/73333955-a64c9180-42ae-11ea-82c3-25d1da297cd6.png)
+
 ### Prerequisite
 1. Add it in your root build.gradle at the end of repositories:
 ```groovy
